@@ -1,15 +1,15 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-11-18T02:58:26Z",
+  "generated_at": "2026-11-18T03:12:40Z",
   "portfolio_owner": "Jagjyot",
   "portfolio_meta": {
     "total_projects": 6,
-    "verified_count": 2,
-    "active_build_count": 4,
+    "verified_count": 6,
+    "active_build_count": 0,
     "initializing_count": 0,
-    "total_disk_files": 206,
-    "total_tests_reported": 0,
-    "total_detected_test_cases": 25,
+    "total_disk_files": 354,
+    "total_tests_reported": 101,
+    "total_detected_test_cases": 109,
     "software_systems_count": 2,
     "simulation_systems_count": 1,
     "hardware_systems_count": 3
@@ -24,7 +24,7 @@
       "category": "Software & AI",
       "domain_badge": "Aerospace Telemetry",
       "problem_statement": "Raw ArduPilot (.bin), PX4 (.ulg), and MAVLink flight logs encapsulate multi-rate IMU, ESC, GPS, and battery messages where transient rotor harmonics, voltage sags, and sensor glitches are tedious to isolate manually across post-flight debriefs.",
-      "solution_summary": "End-to-end flight telemetry ingestion and diagnostics pipeline combining deterministic ULog/MAVLink parsing, spectral FFT vibration & electrical anomaly detection, SQLite run persistence, FastAPI REST endpoints, PDF/HTML/CSV reporting, and a React + Plotly UI.",
+      "solution_summary": "**AeroLens (`aerolens-flight-analytics`)** is a production-grade post-flight UAV telemetry analysis platform. It ingests multi-ecosystem drone flight logs (**ArduPilot**, **PX4 ULog**, **MAVLink**), executes physics-based and statistical anomaly detection (electro-chemical battery $R_{\\text{int}}$, SciPy FFT vibration ...",
       "key_highlights": [
         "Multi-format ArduPilot/PX4 ULog & MAVLink log ingestion",
         "Spectral FFT harmonic peak, voltage brownout & GPS HDOP anomaly engine",
@@ -111,7 +111,8 @@
           "Plotly",
           "SQLite",
           "Pydantic",
-          "pytest"
+          "pytest",
+          "Vite"
         ],
         "detected_from_disk": [
           "FastAPI",
@@ -119,7 +120,11 @@
           "NumPy",
           "SciPy",
           "Pydantic",
-          "pytest"
+          "pytest",
+          "React",
+          "TypeScript",
+          "Vite",
+          "Plotly"
         ]
       },
       "hardware": {
@@ -136,10 +141,10 @@
       "repo": {
         "target_repo_name": "aerolens-flight-analytics",
         "branch": "main",
-        "git_initialized": false,
-        "latest_commit": null,
-        "remote_url": null,
-        "push_status": "Local only"
+        "git_initialized": true,
+        "latest_commit": "c610ea8",
+        "remote_url": "https://github.com/jagjyot2/aerolens-flight-analytics",
+        "push_status": "Local only (awaiting gh auth)"
       },
       "local_launch": {
         "mode_label": "Local Backend + Frontend Dev",
@@ -154,14 +159,17 @@
         ]
       },
       "verification": {
-        "stage": "Dispatched",
+        "stage": "QA Passed (Ready for Push)",
         "assigned_agent": "Agent 01 (aerolens-engineer)",
-        "workspace_state": "active_build",
-        "disk_file_count": 26,
+        "workspace_state": "verified",
+        "disk_file_count": 53,
         "key_files": [
           ".env.example",
           ".gitignore",
           "LICENSE",
+          "README.md",
+          "ROADMAP.md",
+          "aerolens.db",
           "backend/__init__.py",
           "backend/analysis/__init__.py",
           "backend/analysis/anomaly_engine.py",
@@ -179,18 +187,21 @@
           "backend/parsers/px4_ulog.py",
           "backend/parsers/registry.py",
           "backend/schemas.py",
-          "requirements.txt",
-          "sample_data/synthetic_gps_glitch_attitude_instability.ulog.json",
-          "sample_data/synthetic_mavlink_telemetry_sample.tlog.json",
-          "sample_data/synthetic_nominal_survey_flight.csv",
-          "sample_data/synthetic_voltage_sag_vibration_anomaly.csv",
-          "scripts/generate_sample_logs.py"
+          "backend/static/index.html",
+          "docs/ARCHITECTURE.md",
+          "frontend/index.html",
+          "frontend/package-lock.json",
+          "frontend/package.json"
         ],
-        "test_files": [],
-        "detected_test_cases": 0,
-        "status_tests_passed": 0,
+        "test_files": [
+          "tests/test_anomaly_engine.py",
+          "tests/test_api_and_exports.py",
+          "tests/test_parsers.py"
+        ],
+        "detected_test_cases": 17,
+        "status_tests_passed": 17,
         "status_tests_failed": 0,
-        "blockers": "None (gh auth pending for remote push)"
+        "blockers": "gh auth pending (8B7B-F10D)"
       }
     },
     {
@@ -202,7 +213,7 @@
       "category": "Software & AI",
       "domain_badge": "AI / Computer Vision",
       "problem_statement": "High-resolution UAV nadir/oblique imagery renders stranded hikers or distress markers as sub-32px targets that disappear under whole-image resizing, while uncalibrated pixel boxes lack verified latitude/longitude coordinates for ground rescue dispatch.",
-      "solution_summary": "Overlapping aerial image tiler with global Non-Maximum Suppression (NMS), dual ONNX/PyTorch + OpenCV spectral SAR target detector, EXIF pinhole camera GPS raycaster, Precision/Recall/IoU evaluator, and a human-in-the-loop verification queue.",
+      "solution_summary": "**Offline-capable, Dual-Stage Computer Vision & Geospatial Intelligence System for Aerial Search & Rescue (SAR)**",
       "key_highlights": [
         "Overlapping high-res aerial tiler + global cross-tile NMS deduplication",
         "ONNX Runtime / PyTorch + OpenCV spectral contrast SAR target detector",
@@ -291,7 +302,8 @@
           "NumPy",
           "SciPy",
           "Pydantic",
-          "pytest"
+          "pytest",
+          "Vite"
         ],
         "detected_from_disk": [
           "FastAPI",
@@ -302,7 +314,10 @@
           "ONNX Runtime",
           "PyTorch",
           "Pydantic",
-          "pytest"
+          "pytest",
+          "React",
+          "TypeScript",
+          "Vite"
         ]
       },
       "hardware": {
@@ -319,10 +334,10 @@
       "repo": {
         "target_repo_name": "sarvision-ai",
         "branch": "main",
-        "git_initialized": false,
-        "latest_commit": null,
-        "remote_url": null,
-        "push_status": "Local only"
+        "git_initialized": true,
+        "latest_commit": "dff1ca5",
+        "remote_url": "https://github.com/jagjyot2/sarvision-ai",
+        "push_status": "Local only (awaiting gh auth)"
       },
       "local_launch": {
         "mode_label": "Local Inference API + Inspector UI",
@@ -337,14 +352,16 @@
         ]
       },
       "verification": {
-        "stage": "Dispatched",
+        "stage": "QA Passed (Ready for Push)",
         "assigned_agent": "Agent 02 (sarvision-engineer)",
-        "workspace_state": "active_build",
-        "disk_file_count": 24,
+        "workspace_state": "verified",
+        "disk_file_count": 46,
         "key_files": [
           ".env.example",
           ".gitignore",
           "LICENSE",
+          "README.md",
+          "ROADMAP.md",
           "backend/__init__.py",
           "backend/config.py",
           "backend/cv_engine/__init__.py",
@@ -357,21 +374,28 @@
           "backend/main.py",
           "backend/models.py",
           "backend/schemas.py",
-          "models/model_metadata.json",
-          "models/sarvision_micro_detector.onnx",
-          "requirements.txt",
-          "sample_data/ground_truth.json",
-          "sample_data/sar_alpine_snowfield.jpg",
-          "sample_data/sar_maritime_openwater.jpg",
-          "sample_data/sar_wilderness_clearing.jpg",
-          "scripts/export_sar_onnx_model.py",
-          "scripts/generate_sar_test_imagery.py"
+          "docs/ARCHITECTURE.md",
+          "frontend/index.html",
+          "frontend/package-lock.json",
+          "frontend/package.json",
+          "frontend/src/App.tsx",
+          "frontend/src/api.ts",
+          "frontend/src/components/DetectionCanvas.tsx",
+          "frontend/src/components/EvaluationPanel.tsx",
+          "frontend/src/components/GeoTacticalPlot.tsx",
+          "frontend/src/main.tsx",
+          "frontend/src/styles.css"
         ],
-        "test_files": [],
-        "detected_test_cases": 0,
-        "status_tests_passed": 0,
+        "test_files": [
+          "tests/test_api.py",
+          "tests/test_detector_and_geo.py",
+          "tests/test_evaluator_metrics.py",
+          "tests/test_tiler_nms.py"
+        ],
+        "detected_test_cases": 16,
+        "status_tests_passed": 16,
         "status_tests_failed": 0,
-        "blockers": "None (gh auth pending for remote push)"
+        "blockers": "gh auth pending (8B7B-F10D)"
       }
     },
     {
@@ -383,7 +407,7 @@
       "category": "Simulation",
       "domain_badge": "3D Swarm Simulation",
       "problem_statement": "Coordinating multi-UAV search swarms in cluttered 3D airspace requires validating path planners under wind disturbance, battery energy constraints, geofences, and RF link loss before risking physical multi-rotor hardware.",
-      "solution_summary": "Deterministic 3D multi-UAV physics and energy simulation engine featuring 3D A*, RRT*, and Artificial Potential Field (APF) planners with live benchmark comparison, collision/geofence enforcement, comm-loss RTL failsafe, FastAPI WebSockets, and a React + Three.js 3D twin.",
+      "solution_summary": "**SAFETY NOTICE \u2014 SIMULATION ONLY (`HARDWARE_ACTUATION_LOCKED = True`)** SwarmForge is an isolated software Digital Twin. Physical hardware actuation, motor arming, and outbound flight-controller commands are permanently disabled in code (`backend/sim_engine/safety.py`) and blocked at the API layer (`/api/hardware/actu...",
       "key_highlights": [
         "3D UAV kinematics with aerodynamic drag, wind vector & battery depletion",
         "Pluggable 3D A*, RRT*, and APF trajectory planners with benchmark comparator",
@@ -498,10 +522,10 @@
       "repo": {
         "target_repo_name": "swarmforge-uav-simulator",
         "branch": "main",
-        "git_initialized": false,
-        "latest_commit": null,
-        "remote_url": null,
-        "push_status": "Local only"
+        "git_initialized": true,
+        "latest_commit": "7b65061",
+        "remote_url": "https://github.com/jagjyot2/swarmforge-uav-simulator",
+        "push_status": "Local only (awaiting gh auth)"
       },
       "local_launch": {
         "mode_label": "WebSocket Sim Engine + Three.js Twin",
@@ -516,14 +540,16 @@
         ]
       },
       "verification": {
-        "stage": "Dispatched",
+        "stage": "QA Passed (Ready for Push)",
         "assigned_agent": "Agent 03 (swarmforge-engineer)",
         "workspace_state": "verified",
-        "disk_file_count": 34,
+        "disk_file_count": 37,
         "key_files": [
           ".env.example",
           ".gitignore",
           "LICENSE",
+          "README.md",
+          "ROADMAP.md",
           "backend/__init__.py",
           "backend/main.py",
           "backend/sample_missions/head_on_crossing.json",
@@ -536,6 +562,7 @@
           "backend/sim_engine/simulator.py",
           "backend/sim_engine/uav_dynamics.py",
           "backend/static/index.html",
+          "docs/ARCHITECTURE.md",
           "frontend/index.html",
           "frontend/package.json",
           "frontend/src/App.tsx",
@@ -545,10 +572,7 @@
           "frontend/src/components/TelemetryPanel.tsx",
           "frontend/src/index.css",
           "frontend/src/main.tsx",
-          "frontend/src/types/simulation.ts",
-          "frontend/tsconfig.json",
-          "frontend/tsconfig.node.json",
-          "frontend/vite.config.ts"
+          "frontend/src/types/simulation.ts"
         ],
         "test_files": [
           "tests/test_api_websocket.py",
@@ -556,10 +580,10 @@
           "tests/test_planners_astar_rrt_apf.py",
           "tests/test_uav_physics_battery.py"
         ],
-        "detected_test_cases": 17,
-        "status_tests_passed": 0,
+        "detected_test_cases": 18,
+        "status_tests_passed": 18,
         "status_tests_failed": 0,
-        "blockers": "None (gh auth pending for remote push)"
+        "blockers": "gh auth pending (8B7B-F10D)"
       }
     },
     {
@@ -571,7 +595,7 @@
       "category": "Embedded & Hardware",
       "domain_badge": "Embedded Avionics PCB",
       "problem_statement": "Custom research multi-rotors need a lightweight, EMI-resilient telemetry avionics board capable of fusing IMU attitude, laser altitude, rotor RPM, and pack health into CRC-16 protected LoRa packets independent of main flight controller lockups.",
-      "solution_summary": "Modular ESP32 PlatformIO firmware + KiCad 8 custom PCB integrating MPU6050 6-axis IMU, VL53L0X ToF lidar, Hall-effect RPM capture, ADC voltage/current/NTC channels, and SX1278 433/915 MHz LoRa telemetry with Gerbers, BOM, and BenchTwin workbench export.",
+      "solution_summary": "**STRICT SAFETY CONSTRAINT**: FlightCore is **exclusively a passive sensor acquisition and LoRa telemetry expansion module**. It contains **NO motor/ESC PWM control, NO servo actuation, and NO flight controller stabilization loops**.",
       "key_highlights": [
         "Deterministic ESP32 PlatformIO C++ firmware with modular sensor drivers",
         "Custom binary LoRa packet framing with CRC-16 integrity verification",
@@ -656,11 +680,14 @@
           "Python Verification",
           "BenchTwin 3D",
           "PlatformIO",
-          "ESP32"
+          "ESP32",
+          "OpenSCAD / STL"
         ],
         "detected_from_disk": [
           "PlatformIO",
-          "ESP32"
+          "ESP32",
+          "KiCad 8",
+          "OpenSCAD / STL"
         ]
       },
       "hardware": {
@@ -676,7 +703,7 @@
         "comms": "SX1278 LoRa Sub-GHz (SPI, CRC-16 Framed)",
         "pcb_summary": "KiCad 8 custom avionics carrier with 3.3V buck/LDO power tree, RF impedance feed & full Gerber/Drill export.",
         "stl_summary": "Optional 3D-printable vibration-damped M3 mounting tray & LoRa SMA bulkhead bracket.",
-        "bom_items": [
+        "reference_bom": [
           {
             "designator": "U1",
             "part": "ESP32-WROOM-32E",
@@ -714,20 +741,197 @@
             "qty": 1
           }
         ],
-        "bom_source": "hardware_spec",
-        "kicad_files_detected": [],
-        "gerber_files_detected": [],
-        "stl_files_detected": [],
-        "benchtwin_files_detected": [],
-        "benchtwin_status": "Pending browser verification (04-FLIGHTCORE/benchtwin/)"
+        "bom_items": [
+          {
+            "designator": "U1",
+            "part": "MCU Module",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "U2",
+            "part": "6-Axis IMU",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "U3",
+            "part": "ToF Laser Ranging",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "U4",
+            "part": "433MHz LoRa RF",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "U5",
+            "part": "Current Sense Amp",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "U6",
+            "part": "LDO Regulator",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "U7",
+            "part": "DC-DC Buck Module",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "J1",
+            "part": "Power Input Conn",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "J2",
+            "part": "PDB Pass-Through",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "J3",
+            "part": "Hall RPM Harness",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "J4",
+            "part": "NTC Probe Header",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "J5",
+            "part": "RF Edge SMA",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "J6",
+            "part": "ESP32-CAM UART2",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "F1",
+            "part": "PTC Fuse",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "D1",
+            "part": "Reverse Polarity",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "D2",
+            "part": "ADC Clamp Diode",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "D3",
+            "part": "TVS Surge Clamp",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "D4",
+            "part": "Status LED",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "SW1",
+            "part": "Calibrate Button",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "JP1",
+            "part": "Bench 3V3 Jumper",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "R11",
+            "part": "Current Shunt",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "R1",
+            "part": "Resistor 0805 1%",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "R2",
+            "part": "Resistor 0805 1%",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "R3",
+            "part": "Resistor 0805 1%",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "R4",
+            "part": "Resistor 0805 1%",
+            "spec": "",
+            "qty": 1
+          }
+        ],
+        "bom_source": "parsed_workspace_bom",
+        "kicad_files_detected": [
+          "hardware/flightcore.kicad_pcb",
+          "hardware/flightcore.kicad_pro",
+          "hardware/flightcore.kicad_sch"
+        ],
+        "gerber_files_detected": [
+          "hardware/gerbers/drc_report.txt",
+          "hardware/gerbers/flightcore-B_Cu.gbl",
+          "hardware/gerbers/flightcore-B_Mask.gbs",
+          "hardware/gerbers/flightcore-B_Silkscreen.gbo",
+          "hardware/gerbers/flightcore-Edge_Cuts.gm1",
+          "hardware/gerbers/flightcore-F_Cu.gtl",
+          "hardware/gerbers/flightcore-F_Mask.gts",
+          "hardware/gerbers/flightcore-F_Silkscreen.gto",
+          "hardware/gerbers/flightcore-PTH.drl"
+        ],
+        "stl_files_detected": [
+          "benchtwin/enclosure_mount.stl"
+        ],
+        "benchtwin_files_detected": [
+          "benchtwin/BENCHTWIN-SIMULATION-NOTES.md",
+          "benchtwin/BOM.csv",
+          "benchtwin/enclosure_mount.stl",
+          "benchtwin/flightcore-benchtwin.json",
+          "benchtwin/flightcore.btw",
+          "benchtwin/flightcore.net",
+          "benchtwin/schematic_preview.svg",
+          "tests/test_hardware_and_benchtwin_artifacts.py"
+        ],
+        "benchtwin_status": "Local package staged (04-FLIGHTCORE/benchtwin/); browser active"
       },
       "repo": {
         "target_repo_name": "flightcore-telemetry",
         "branch": "main",
         "git_initialized": true,
-        "latest_commit": null,
-        "remote_url": null,
-        "push_status": "Local only"
+        "latest_commit": "136f97c",
+        "remote_url": "https://github.com/jagjyot2/flightcore-telemetry",
+        "push_status": "Local only (awaiting gh auth)"
       },
       "local_launch": {
         "mode_label": "PlatformIO Firmware Build & Telemetry Decoder Tests",
@@ -742,14 +946,24 @@
         ]
       },
       "verification": {
-        "stage": "Dispatched",
+        "stage": "QA Passed (Ready for Push)",
         "assigned_agent": "Agent 04 (flightcore-engineer)",
         "workspace_state": "verified",
-        "disk_file_count": 23,
+        "disk_file_count": 55,
         "key_files": [
           ".env.example",
           ".gitignore",
           "LICENSE",
+          "README.md",
+          "ROADMAP.md",
+          "benchtwin/BENCHTWIN-SIMULATION-NOTES.md",
+          "benchtwin/BOM.csv",
+          "benchtwin/enclosure_mount.stl",
+          "benchtwin/flightcore-benchtwin.json",
+          "benchtwin/flightcore.btw",
+          "benchtwin/flightcore.net",
+          "benchtwin/schematic_preview.svg",
+          "docs/ARCHITECTURE.md",
           "firmware/include/config.h",
           "firmware/include/hall_rpm_driver.h",
           "firmware/include/lora_sx1278.h",
@@ -764,20 +978,19 @@
           "firmware/src/mpu6050_driver.cpp",
           "firmware/src/power_temp_monitor.cpp",
           "firmware/src/telemetry_protocol.cpp",
-          "firmware/src/vl53l0x_driver.cpp",
-          "firmware/test/test_flightcore_native.cpp",
-          "ground_station/__init__.py",
-          "ground_station/protocol.py",
-          "ground_station/receiver_cli.py",
-          "ground_station/requirements.txt"
+          "firmware/src/vl53l0x_driver.cpp"
         ],
         "test_files": [
-          "firmware/test/test_flightcore_native.cpp"
+          "firmware/test/test_flightcore_native.cpp",
+          "tests/test_cpp_native_suite.py",
+          "tests/test_hardware_and_benchtwin_artifacts.py",
+          "tests/test_protocol_and_ground_station.py",
+          "tests/test_sensor_math.py"
         ],
-        "detected_test_cases": 8,
-        "status_tests_passed": 0,
+        "detected_test_cases": 24,
+        "status_tests_passed": 16,
         "status_tests_failed": 0,
-        "blockers": "BenchTwin login & gh auth pending"
+        "blockers": "BenchTwin live browser check & gh auth"
       }
     },
     {
@@ -789,7 +1002,7 @@
       "category": "Embedded & Hardware",
       "domain_badge": "Autonomous Robotics",
       "problem_statement": "Disaster-zone indoor reconnaissance requires a compact differential-drive rover with hardware-enforced failsafes (comm-loss stop & E-STOP), closed-loop wheel odometry, reproducible 3D-printable chassis mechanics, and a paired kinematics simulator.",
-      "solution_summary": "Integrated robotics stack combining ESP32 PID differential-drive firmware (encoder feedback, MPU6050, VL53L0X, 500ms comm-loss failsafe), Python/FastAPI navigation simulator + web control HUD, OpenSCAD/STL 3D printable chassis, KiCad carrier PCB, and BenchTwin export.",
+      "solution_summary": "**RoverSAR** is an autonomous differential-drive search-and-rescue (SAR) ground robot combining modular **PlatformIO ESP32 C++ firmware**, a **FastAPI + WebSocket 2D physics/SLAM simulator**, a **responsive React + TypeScript dark-mode control HUD**, **3D-printable OpenSCAD/STL chassis CAD**, **KiCad 8 schematics & BOM...",
       "key_highlights": [
         "ESP32 closed-loop wheel encoder PID + 500ms comm-loss & E-STOP safety latch",
         "Python differential-drive kinematics simulator with WebSocket control dashboard",
@@ -881,7 +1094,8 @@
           "TypeScript",
           "Vite",
           "PlatformIO",
-          "ESP32"
+          "ESP32",
+          "OpenSCAD / STL"
         ],
         "detected_from_disk": [
           "FastAPI",
@@ -892,7 +1106,9 @@
           "TypeScript",
           "Vite",
           "PlatformIO",
-          "ESP32"
+          "ESP32",
+          "KiCad 8",
+          "OpenSCAD / STL"
         ]
       },
       "hardware": {
@@ -907,7 +1123,7 @@
         "comms": "Wi-Fi WebSocket Telemetry + UART Bridge",
         "pcb_summary": "KiCad 8 rover carrier board separating high-current motor power rails from regulated 3.3V ESP32 logic.",
         "stl_summary": "OpenSCAD-generated STL chassis deck, DC motor clamp mounts, caster housing & VL53L0X front bumper.",
-        "bom_items": [
+        "reference_bom": [
           {
             "designator": "U1",
             "part": "ESP32 DevKit / WROOM",
@@ -945,20 +1161,159 @@
             "qty": 1
           }
         ],
-        "bom_source": "hardware_spec",
-        "kicad_files_detected": [],
+        "bom_items": [
+          {
+            "designator": "U1",
+            "part": "ESP32-WROOM-32D DevKit",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "U2",
+            "part": "TB6612FNG Dual Motor Driver",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "U3",
+            "part": "MPU6050 6-DoF IMU",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "U4-U8",
+            "part": "VL53L0X Time-of-Flight Sensor",
+            "spec": "",
+            "qty": 5
+          },
+          {
+            "designator": "U9",
+            "part": "ESP32-CAM AI-Thinker + OV2640",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "U10",
+            "part": "LM2596S 5V Buck Converter",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "M1-M2",
+            "part": "JGA25-370 Geared Motor + Encoder",
+            "spec": "",
+            "qty": 2
+          },
+          {
+            "designator": "BT1",
+            "part": "2S 18650 Li-Ion Battery Pack",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "F1",
+            "part": "Inline Automotive Blade Fuse",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "SW1",
+            "part": "Main Power Rocker Switch",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "SW2",
+            "part": "Emergency Stop Pushbutton",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "R1",
+            "part": "Resistor 22kOhm 1%",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "R2",
+            "part": "Resistor 10kOhm 1%",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "R3-R9",
+            "part": "Resistor 10kOhm 5%",
+            "spec": "",
+            "qty": 7
+          },
+          {
+            "designator": "R10-R11",
+            "part": "Resistor 4.7kOhm 5%",
+            "spec": "",
+            "qty": 2
+          },
+          {
+            "designator": "C1",
+            "part": "Ceramic Capacitor 100nF 50V",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "C2",
+            "part": "Electrolytic Capacitor 470uF 16V",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "WH1-WH2",
+            "part": "Robot Wheel 65mm Rubber Tire",
+            "spec": "",
+            "qty": 2
+          },
+          {
+            "designator": "CS1",
+            "part": "Rear Ball/Swivel Caster",
+            "spec": "",
+            "qty": 1
+          },
+          {
+            "designator": "H1",
+            "part": "M3 Fastener & Standoff Kit",
+            "spec": "",
+            "qty": 1
+          }
+        ],
+        "bom_source": "parsed_workspace_bom",
+        "kicad_files_detected": [
+          "hardware/roversar.kicad_sch"
+        ],
         "gerber_files_detected": [],
-        "stl_files_detected": [],
-        "benchtwin_files_detected": [],
-        "benchtwin_status": "Pending browser verification (05-ROVERSAR/benchtwin/)"
+        "stl_files_detected": [
+          "benchtwin/roversar_base_plate.stl",
+          "cad/esp32_cam_tilt_bracket.scad",
+          "cad/esp32_cam_tilt_bracket.stl",
+          "cad/roversar_base_plate.scad",
+          "cad/roversar_base_plate.stl",
+          "cad/vl53l0x_sensor_mount.scad",
+          "cad/vl53l0x_sensor_mount.stl"
+        ],
+        "benchtwin_files_detected": [
+          "benchtwin/BENCHTWIN-SIMULATION-NOTES.md",
+          "benchtwin/BOM.csv",
+          "benchtwin/roversar-benchtwin.json",
+          "benchtwin/roversar.btw",
+          "benchtwin/roversar.net",
+          "benchtwin/roversar_base_plate.stl"
+        ],
+        "benchtwin_status": "Local package staged (05-ROVERSAR/benchtwin/); browser active"
       },
       "repo": {
         "target_repo_name": "roversar-autonomous-robot",
         "branch": "main",
         "git_initialized": true,
-        "latest_commit": "2e5f06e",
-        "remote_url": null,
-        "push_status": "Local only"
+        "latest_commit": "cd18610",
+        "remote_url": "https://github.com/jagjyot2/roversar-autonomous-robot",
+        "push_status": "Local only (awaiting gh auth)"
       },
       "local_launch": {
         "mode_label": "Nav Simulator + Web HUD + PlatformIO",
@@ -974,15 +1329,31 @@
         ]
       },
       "verification": {
-        "stage": "Dispatched",
+        "stage": "QA Passed (Ready for Push)",
         "assigned_agent": "Agent 05 (roversar-engineer)",
-        "workspace_state": "active_build",
-        "disk_file_count": 61,
+        "workspace_state": "verified",
+        "disk_file_count": 88,
         "key_files": [
           ".env.example",
           ".gitignore",
           "LICENSE",
+          "README.md",
+          "ROADMAP.md",
+          "benchtwin/BENCHTWIN-SIMULATION-NOTES.md",
+          "benchtwin/BOM.csv",
+          "benchtwin/roversar-benchtwin.json",
+          "benchtwin/roversar.btw",
+          "benchtwin/roversar.net",
+          "benchtwin/roversar_base_plate.stl",
+          "cad/esp32_cam_tilt_bracket.scad",
+          "cad/esp32_cam_tilt_bracket.stl",
+          "cad/generate_stl.py",
+          "cad/roversar_base_plate.scad",
+          "cad/roversar_base_plate.stl",
+          "cad/vl53l0x_sensor_mount.scad",
+          "cad/vl53l0x_sensor_mount.stl",
           "dashboard/index.html",
+          "dashboard/package-lock.json",
           "dashboard/package.json",
           "dashboard/src/App.tsx",
           "dashboard/src/components/CameraHudPanel.tsx",
@@ -990,29 +1361,18 @@
           "dashboard/src/components/SafetyControls.tsx",
           "dashboard/src/components/TelemetryGauges.tsx",
           "dashboard/src/components/VirtualJoystick.tsx",
-          "dashboard/src/hooks/useRoverSocket.ts",
-          "dashboard/src/main.tsx",
-          "dashboard/src/styles.css",
-          "dashboard/src/types.ts",
-          "dashboard/tsconfig.json",
-          "dashboard/vite.config.ts",
-          "firmware/include/camera/esp32_cam_link.h",
-          "firmware/include/communication/ws_telemetry_server.h",
-          "firmware/include/motor_control/kinematics.h",
-          "firmware/include/motor_control/motor_driver.h",
-          "firmware/include/motor_control/pid_controller.h",
-          "firmware/include/navigation/occupancy_grid.h",
-          "firmware/include/navigation/vfh_planner.h",
-          "firmware/include/navigation/waypoint_follower.h",
-          "firmware/include/roversar_config.h",
-          "firmware/include/safety/safety_supervisor.h",
-          "firmware/include/safety/watchdog.h"
+          "dashboard/src/hooks/useRoverSocket.ts"
         ],
-        "test_files": [],
-        "detected_test_cases": 0,
-        "status_tests_passed": 0,
+        "test_files": [
+          "tests/test_diff_drive_kinematics.py",
+          "tests/test_navigation_and_failsafe.py",
+          "tests/test_odometry_and_mapping.py",
+          "tests/test_sim_api.py"
+        ],
+        "detected_test_cases": 16,
+        "status_tests_passed": 16,
         "status_tests_failed": 0,
-        "blockers": "BenchTwin login & gh auth pending"
+        "blockers": "BenchTwin live browser check & gh auth"
       }
     },
     {
@@ -1024,7 +1384,7 @@
       "category": "Embedded & Hardware",
       "domain_badge": "Power / BMS Hardware",
       "problem_statement": "High-rate 4S/6S 21700 UAV battery packs experience voltage sag, capacity fade (SoH), internal DC resistance (R_dc) rise, and dangerous thermal runaway transients (dT/dt) that coarse voltage-only fuel gauges fail to predict.",
-      "solution_summary": "Precision 4S/6S 21700 pack monitor pairing an ESP32 + INA226 16-bit Kelvin-shunt current/bus monitor + multi-point NTC dT/dt thermal watchdog + Coulomb/OCV SoC/SoH/R_dc estimation with NVS calibration, KiCad 8 2oz-copper Kelvin PCB, Safety Guide, and FastAPI analytics.",
+      "solution_summary": "**CellGuard** (`cellguard-battery-monitor`) is an end-to-end embedded + hardware + analytics platform for monitoring **1S\u20136S 21700 Li-Ion battery packs** (optimized for **4S 14.8 V** and **6S 22.2 V** packs). It combines a KiCad 8 Kelvin-shunt instrumentation PCB, modular ESP32 PlatformIO C++ firmware, a BenchTwin digi...",
       "key_highlights": [
         "INA226 16-bit Kelvin-sense shunt (2 m\u03a9) + multi-NTC dT/dt thermal runaway guard",
         "Hybrid Coulomb Counting + OCV lookup SoC, SoH & DC Internal Resistance (R_dc)",
@@ -1116,7 +1476,9 @@
           "TypeScript",
           "Vite",
           "PlatformIO",
-          "ESP32"
+          "ESP32",
+          "KiCad 8",
+          "OpenSCAD / STL"
         ],
         "detected_from_disk": [
           "FastAPI",
@@ -1128,7 +1490,9 @@
           "TypeScript",
           "Vite",
           "PlatformIO",
-          "ESP32"
+          "ESP32",
+          "KiCad 8",
+          "OpenSCAD / STL"
         ]
       },
       "hardware": {
@@ -1142,7 +1506,7 @@
         "comms": "I2C Sensor Bus + Wi-Fi/UART JSON Telemetry",
         "pcb_summary": "KiCad 8 high-current Kelvin-sense BMS monitor PCB with 2oz copper pours, isolated analog ground return & Gerbers.",
         "stl_summary": "Ventilated 21700 sensor carrier housing & XT60 strain-relief shroud.",
-        "bom_items": [
+        "reference_bom": [
           {
             "designator": "U1",
             "part": "ESP32-WROOM-32E",
@@ -1180,20 +1544,196 @@
             "qty": 2
           }
         ],
-        "bom_source": "hardware_spec",
-        "kicad_files_detected": [],
-        "gerber_files_detected": [],
-        "stl_files_detected": [],
-        "benchtwin_files_detected": [],
-        "benchtwin_status": "Pending browser verification (06-CELLGUARD/benchtwin/)"
+        "bom_items": [
+          {
+            "designator": "-",
+            "part": "ESP32-DevKitC-32E",
+            "spec": "WiFi/BLE Dual-Core Telemetry MCU (ADC1 + I2C + NVS)",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "AMS1117-3.3",
+            "spec": "5V to 3.3V 800mA LDO Regulator (Isolated from cell taps)",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "INA226AIDGSR",
+            "spec": "16-bit Precision I2C Current/Bus Voltage Monitor (0x40)",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "CD74HC4051M",
+            "spec": "8:1 Analog Multiplexer for B1-B6 taps + GND/VREF cal",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "MCP6001T-I/OT",
+            "spec": "Unity-gain SAR ADC driver buffer for MUX output",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "LM4040AIM3-2.0",
+            "spec": "2.048V 0.1% Precision Shunt Reference on MUX CH7",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "1.0mOhm 5W Kelvin",
+            "spec": "4-Wire Kelvin Precision Shunt (1.0 mOhm, 1%, 5W)",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "PACK_POS_IN (XT60)",
+            "spec": "Pack+ Input downstream of External Commercial BMS + Inline Main Fuse",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "LOAD_POS_OUT (XT60)",
+            "spec": "Load+ Output post-shunt",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "CELL_TAPS_1S-6S",
+            "spec": "7-pin Cell Group Sense Tap Header (B0/GND, B1..B6)",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "USB-C_UART_5V",
+            "spec": "Isolated Logic 5V Power & UART Telemetry/Calibration Port",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "NTC_ARRAY_4CH",
+            "spec": "4-Channel 10k NTC Thermistor Header (4x signal + 4x GND)",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "CAL_MUTE_BTN",
+            "spec": "Pushbutton for local piezo mute / calibration ack",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "2N7002",
+            "spec": "Low-current piezo buzzer signal driver (NOT a pack FET)",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "Piezo_Alert_3V3",
+            "spec": "Audible critical alarm transducer",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "100mA 60V PPTC",
+            "spec": "Sense tap B1 resettable PPTC polyfuse",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "SMAJ28A",
+            "spec": "Sense tap B1 28V TVS surge clamp to GND",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "100mA 60V PPTC",
+            "spec": "Sense tap B2 resettable PPTC polyfuse",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "SMAJ28A",
+            "spec": "Sense tap B2 28V TVS surge clamp to GND",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "100mA 60V PPTC",
+            "spec": "Sense tap B3 resettable PPTC polyfuse",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "SMAJ28A",
+            "spec": "Sense tap B3 28V TVS surge clamp to GND",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "100mA 60V PPTC",
+            "spec": "Sense tap B4 resettable PPTC polyfuse",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "SMAJ28A",
+            "spec": "Sense tap B4 28V TVS surge clamp to GND",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "100mA 60V PPTC",
+            "spec": "Sense tap B5 resettable PPTC polyfuse",
+            "qty": 1
+          },
+          {
+            "designator": "-",
+            "part": "SMAJ28A",
+            "spec": "Sense tap B5 28V TVS surge clamp to GND",
+            "qty": 1
+          }
+        ],
+        "bom_source": "parsed_workspace_bom",
+        "kicad_files_detected": [
+          "hardware/cellguard.kicad_pcb",
+          "hardware/cellguard.kicad_pro",
+          "hardware/cellguard.kicad_sch"
+        ],
+        "gerber_files_detected": [
+          "hardware/gerbers/DRC-REPORT.txt",
+          "hardware/gerbers/cellguard-B_Cu.gbl",
+          "hardware/gerbers/cellguard-B_Mask.gbs",
+          "hardware/gerbers/cellguard-B_Silkscreen.gbo",
+          "hardware/gerbers/cellguard-Edge_Cuts.gm1",
+          "hardware/gerbers/cellguard-F_Cu.gtl",
+          "hardware/gerbers/cellguard-F_Mask.gts",
+          "hardware/gerbers/cellguard-F_Paste.gtp",
+          "hardware/gerbers/cellguard-F_Silkscreen.gto",
+          "hardware/gerbers/cellguard.drl"
+        ],
+        "stl_files_detected": [
+          "benchtwin/cellguard_enclosure.stl"
+        ],
+        "benchtwin_files_detected": [
+          "benchtwin/BENCHTWIN-SIMULATION-NOTES.md",
+          "benchtwin/BOM.csv",
+          "benchtwin/cellguard-benchtwin.json",
+          "benchtwin/cellguard.btw",
+          "benchtwin/cellguard.net",
+          "benchtwin/cellguard_enclosure.stl"
+        ],
+        "benchtwin_status": "Local package staged (06-CELLGUARD/benchtwin/); browser active"
       },
       "repo": {
         "target_repo_name": "cellguard-battery-monitor",
         "branch": "main",
         "git_initialized": true,
-        "latest_commit": null,
-        "remote_url": null,
-        "push_status": "Local only"
+        "latest_commit": "088eeaa",
+        "remote_url": "https://github.com/jagjyot2/cellguard-battery-monitor",
+        "push_status": "Local only (awaiting gh auth)"
       },
       "local_launch": {
         "mode_label": "BMS Analytics Dashboard + PlatformIO Firmware",
@@ -1209,45 +1749,50 @@
         ]
       },
       "verification": {
-        "stage": "Dispatched",
+        "stage": "QA Passed (Ready for Push)",
         "assigned_agent": "Agent 06 (cellguard-engineer)",
-        "workspace_state": "active_build",
-        "disk_file_count": 38,
+        "workspace_state": "verified",
+        "disk_file_count": 75,
         "key_files": [
           ".env.example",
           ".gitignore",
           "LICENSE",
+          "README.md",
+          "ROADMAP.md",
           "backend/__init__.py",
           "backend/analytics.py",
           "backend/database.py",
           "backend/datasets.py",
           "backend/main.py",
+          "backend/static/assets/index-BdYGpn2Z.css",
+          "backend/static/assets/index-D9KyVjFY.js",
+          "backend/static/index.html",
+          "benchtwin/BENCHTWIN-SIMULATION-NOTES.md",
+          "benchtwin/BOM.csv",
+          "benchtwin/cellguard-benchtwin.json",
+          "benchtwin/cellguard.btw",
+          "benchtwin/cellguard.net",
+          "benchtwin/cellguard_enclosure.stl",
           "calibration_cli.py",
+          "cellguard_telemetry.db",
           "dashboard/index.html",
+          "dashboard/package-lock.json",
           "dashboard/package.json",
+          "dashboard/src/App.tsx",
           "dashboard/src/api.ts",
           "dashboard/src/components/AlarmConsole.tsx",
-          "dashboard/src/components/CalibrationPanel.tsx",
-          "dashboard/src/components/CellBalanceChart.tsx",
-          "dashboard/src/components/DischargeCurveChart.tsx",
-          "dashboard/src/components/PackGauges.tsx",
-          "dashboard/src/components/ThermalMonitor.tsx",
-          "dashboard/src/index.css",
-          "dashboard/src/main.tsx",
-          "dashboard/src/types.ts",
-          "dashboard/tsconfig.json",
-          "dashboard/tsconfig.node.json",
-          "dashboard/vite.config.ts",
-          "firmware/include/analytics/battery_analytics.h",
-          "firmware/include/calibration/cal_tool.h",
-          "firmware/include/cellguard_config.h",
-          "firmware/include/drivers/cell_tap_monitor.h"
+          "dashboard/src/components/CalibrationPanel.tsx"
         ],
-        "test_files": [],
-        "detected_test_cases": 0,
-        "status_tests_passed": 0,
+        "test_files": [
+          "tests/test_api_and_calibration.py",
+          "tests/test_ina226_math.py",
+          "tests/test_soc_soh_analytics.py",
+          "tests/test_thermal_alarms.py"
+        ],
+        "detected_test_cases": 18,
+        "status_tests_passed": 18,
         "status_tests_failed": 0,
-        "blockers": "BenchTwin login & gh auth pending"
+        "blockers": "BenchTwin live browser check & gh auth"
       }
     }
   ]
