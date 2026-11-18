@@ -1,15 +1,15 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-11-18T03:12:40Z",
+  "generated_at": "2026-11-18T04:10:02Z",
   "portfolio_owner": "Jagjyot",
   "portfolio_meta": {
     "total_projects": 6,
     "verified_count": 6,
     "active_build_count": 0,
     "initializing_count": 0,
-    "total_disk_files": 354,
-    "total_tests_reported": 101,
-    "total_detected_test_cases": 109,
+    "total_disk_files": 413,
+    "total_tests_reported": 105,
+    "total_detected_test_cases": 122,
     "software_systems_count": 2,
     "simulation_systems_count": 1,
     "hardware_systems_count": 3
@@ -142,9 +142,9 @@
         "target_repo_name": "aerolens-flight-analytics",
         "branch": "main",
         "git_initialized": true,
-        "latest_commit": "c610ea8",
+        "latest_commit": "80fa62b",
         "remote_url": "https://github.com/jagjyot2/aerolens-flight-analytics",
-        "push_status": "Local only (awaiting gh auth)"
+        "push_status": "Published & Verified"
       },
       "local_launch": {
         "mode_label": "Local Backend + Frontend Dev",
@@ -159,7 +159,7 @@
         ]
       },
       "verification": {
-        "stage": "QA Passed (Ready for Push)",
+        "stage": "Published & Attributed (jagjyot2)",
         "assigned_agent": "Agent 01 (aerolens-engineer)",
         "workspace_state": "verified",
         "disk_file_count": 53,
@@ -201,7 +201,7 @@
         "detected_test_cases": 17,
         "status_tests_passed": 17,
         "status_tests_failed": 0,
-        "blockers": "gh auth pending (8B7B-F10D)"
+        "blockers": "None (UI screenshots pending)"
       }
     },
     {
@@ -335,9 +335,9 @@
         "target_repo_name": "sarvision-ai",
         "branch": "main",
         "git_initialized": true,
-        "latest_commit": "dff1ca5",
+        "latest_commit": "5341298",
         "remote_url": "https://github.com/jagjyot2/sarvision-ai",
-        "push_status": "Local only (awaiting gh auth)"
+        "push_status": "Published & Verified"
       },
       "local_launch": {
         "mode_label": "Local Inference API + Inspector UI",
@@ -352,7 +352,7 @@
         ]
       },
       "verification": {
-        "stage": "QA Passed (Ready for Push)",
+        "stage": "Published & Attributed (jagjyot2)",
         "assigned_agent": "Agent 02 (sarvision-engineer)",
         "workspace_state": "verified",
         "disk_file_count": 46,
@@ -395,7 +395,7 @@
         "detected_test_cases": 16,
         "status_tests_passed": 16,
         "status_tests_failed": 0,
-        "blockers": "gh auth pending (8B7B-F10D)"
+        "blockers": "None (UI screenshots pending)"
       }
     },
     {
@@ -523,9 +523,9 @@
         "target_repo_name": "swarmforge-uav-simulator",
         "branch": "main",
         "git_initialized": true,
-        "latest_commit": "7b65061",
+        "latest_commit": "86166f5",
         "remote_url": "https://github.com/jagjyot2/swarmforge-uav-simulator",
-        "push_status": "Local only (awaiting gh auth)"
+        "push_status": "Published & Verified"
       },
       "local_launch": {
         "mode_label": "WebSocket Sim Engine + Three.js Twin",
@@ -540,7 +540,7 @@
         ]
       },
       "verification": {
-        "stage": "QA Passed (Ready for Push)",
+        "stage": "Published & Attributed (jagjyot2)",
         "assigned_agent": "Agent 03 (swarmforge-engineer)",
         "workspace_state": "verified",
         "disk_file_count": 37,
@@ -583,7 +583,7 @@
         "detected_test_cases": 18,
         "status_tests_passed": 18,
         "status_tests_failed": 0,
-        "blockers": "gh auth pending (8B7B-F10D)"
+        "blockers": "None (UI screenshots pending)"
       }
     },
     {
@@ -921,6 +921,8 @@
           "benchtwin/flightcore.btw",
           "benchtwin/flightcore.net",
           "benchtwin/schematic_preview.svg",
+          "simulation/adapters/benchtwin/README.md",
+          "simulation/adapters/benchtwin/benchtwin_adapter_manifest.json",
           "tests/test_hardware_and_benchtwin_artifacts.py"
         ],
         "benchtwin_status": "Local package staged (04-FLIGHTCORE/benchtwin/); browser active"
@@ -929,9 +931,9 @@
         "target_repo_name": "flightcore-telemetry",
         "branch": "main",
         "git_initialized": true,
-        "latest_commit": "136f97c",
+        "latest_commit": "371eaa7",
         "remote_url": "https://github.com/jagjyot2/flightcore-telemetry",
-        "push_status": "Local only (awaiting gh auth)"
+        "push_status": "Published & Verified"
       },
       "local_launch": {
         "mode_label": "PlatformIO Firmware Build & Telemetry Decoder Tests",
@@ -946,10 +948,10 @@
         ]
       },
       "verification": {
-        "stage": "QA Passed (Ready for Push)",
+        "stage": "Published & Attributed (jagjyot2)",
         "assigned_agent": "Agent 04 (flightcore-engineer)",
         "workspace_state": "verified",
-        "disk_file_count": 55,
+        "disk_file_count": 78,
         "key_files": [
           ".env.example",
           ".gitignore",
@@ -985,12 +987,13 @@
           "tests/test_cpp_native_suite.py",
           "tests/test_hardware_and_benchtwin_artifacts.py",
           "tests/test_protocol_and_ground_station.py",
-          "tests/test_sensor_math.py"
+          "tests/test_sensor_math.py",
+          "tests/test_simulation_architecture_and_wokwi.py"
         ],
-        "detected_test_cases": 24,
+        "detected_test_cases": 28,
         "status_tests_passed": 16,
         "status_tests_failed": 0,
-        "blockers": "BenchTwin live browser check & gh auth"
+        "blockers": "BenchTwin live browser circuit active"
       }
     },
     {
@@ -1303,17 +1306,19 @@
           "benchtwin/roversar-benchtwin.json",
           "benchtwin/roversar.btw",
           "benchtwin/roversar.net",
-          "benchtwin/roversar_base_plate.stl"
+          "benchtwin/roversar_base_plate.stl",
+          "simulation/adapters/benchtwin/README.md",
+          "simulation/adapters/benchtwin/benchtwin_adapter_manifest.json"
         ],
-        "benchtwin_status": "Local package staged (05-ROVERSAR/benchtwin/); browser active"
+        "benchtwin_status": "Wokwi Active (05-ROVERSAR/wokwi/); BenchTwin Preserved (05-ROVERSAR/benchtwin/)"
       },
       "repo": {
         "target_repo_name": "roversar-autonomous-robot",
         "branch": "main",
         "git_initialized": true,
-        "latest_commit": "cd18610",
+        "latest_commit": "5d0ca48",
         "remote_url": "https://github.com/jagjyot2/roversar-autonomous-robot",
-        "push_status": "Local only (awaiting gh auth)"
+        "push_status": "Published & Verified"
       },
       "local_launch": {
         "mode_label": "Nav Simulator + Web HUD + PlatformIO",
@@ -1329,10 +1334,10 @@
         ]
       },
       "verification": {
-        "stage": "QA Passed (Ready for Push)",
+        "stage": "Wokwi Active & Published (jagjyot2)",
         "assigned_agent": "Agent 05 (roversar-engineer)",
         "workspace_state": "verified",
-        "disk_file_count": 88,
+        "disk_file_count": 106,
         "key_files": [
           ".env.example",
           ".gitignore",
@@ -1367,12 +1372,13 @@
           "tests/test_diff_drive_kinematics.py",
           "tests/test_navigation_and_failsafe.py",
           "tests/test_odometry_and_mapping.py",
-          "tests/test_sim_api.py"
+          "tests/test_sim_api.py",
+          "tests/test_simulation_architecture_and_wokwi.py"
         ],
-        "detected_test_cases": 16,
-        "status_tests_passed": 16,
+        "detected_test_cases": 20,
+        "status_tests_passed": 20,
         "status_tests_failed": 0,
-        "blockers": "BenchTwin live browser check & gh auth"
+        "blockers": "WOKWI_CLI_TOKEN needed for cloud wokwi-cli run"
       }
     },
     {
@@ -1723,7 +1729,9 @@
           "benchtwin/cellguard-benchtwin.json",
           "benchtwin/cellguard.btw",
           "benchtwin/cellguard.net",
-          "benchtwin/cellguard_enclosure.stl"
+          "benchtwin/cellguard_enclosure.stl",
+          "simulation/adapters/benchtwin/README.md",
+          "simulation/adapters/benchtwin/benchtwin_adapter_manifest.json"
         ],
         "benchtwin_status": "Local package staged (06-CELLGUARD/benchtwin/); browser active"
       },
@@ -1731,9 +1739,9 @@
         "target_repo_name": "cellguard-battery-monitor",
         "branch": "main",
         "git_initialized": true,
-        "latest_commit": "088eeaa",
+        "latest_commit": "b4a879c",
         "remote_url": "https://github.com/jagjyot2/cellguard-battery-monitor",
-        "push_status": "Local only (awaiting gh auth)"
+        "push_status": "Published & Verified"
       },
       "local_launch": {
         "mode_label": "BMS Analytics Dashboard + PlatformIO Firmware",
@@ -1749,10 +1757,10 @@
         ]
       },
       "verification": {
-        "stage": "QA Passed (Ready for Push)",
+        "stage": "Published & Attributed (jagjyot2)",
         "assigned_agent": "Agent 06 (cellguard-engineer)",
         "workspace_state": "verified",
-        "disk_file_count": 75,
+        "disk_file_count": 93,
         "key_files": [
           ".env.example",
           ".gitignore",
@@ -1786,13 +1794,14 @@
         "test_files": [
           "tests/test_api_and_calibration.py",
           "tests/test_ina226_math.py",
+          "tests/test_simulation_architecture_and_wokwi.py",
           "tests/test_soc_soh_analytics.py",
           "tests/test_thermal_alarms.py"
         ],
-        "detected_test_cases": 18,
+        "detected_test_cases": 23,
         "status_tests_passed": 18,
         "status_tests_failed": 0,
-        "blockers": "BenchTwin live browser check & gh auth"
+        "blockers": "BenchTwin live browser circuit active"
       }
     }
   ]
